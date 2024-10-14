@@ -1,28 +1,41 @@
-const express = require("express")
-const dbConnect = require("./config/db")
+const dbConnect = require("./config/db");
+const TaskRoutes = require("./routes/TaskRoutes");
+require("dotenv").config();
+const http = require('http'); 
+const express = require("express");
+const cors = require("cors")
+const { createWebSocketServer } = require('./websocket');
 
-
-//routes
-const TaskRoutes = require("./routes/TaskRoutes")
-
-
-//setup
 const app = express();
-require("dotenv").config()
 
-const PORT = process.env.PORT || 4000
+const PORT = process.env.PORT || 4000;
+
+const corsOptions = {
+    origin: process.env.FRONTEND_URL, 
+    methods: 'GET,POST', 
+  };
+  
+app.use(cors(corsOptions));
+
 
 app.use(express.json());
-app.use("/api/v1",TaskRoutes)   
 
-
-app.listen(PORT,()=>{
-    console.log(`Server is Running on Port ${PORT}`);
-})
 
 dbConnect();
 
 
-app.get("/",(req,res)=>{
-    res.send("Task API's")
-})
+app.use("/api/v1", TaskRoutes);
+
+
+app.get("/", (req, res) => {
+    res.send("Task API's");
+});
+
+
+const server = http.createServer(app);
+
+createWebSocketServer(server);
+
+server.listen(PORT, () => {
+    console.log(`Server is Running on Port ${PORT}`);
+});

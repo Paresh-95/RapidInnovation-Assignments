@@ -1,6 +1,6 @@
 const Task = require("../models/Task_model")
-const mailSender = require("../config/mailSender")
-
+const mailSender = require("../config/mailSender");
+const {broadcastTaskUpdate}  = require("../websocket")
 
 exports.markCompleted = async (req,res)=>{
     try {
@@ -27,14 +27,14 @@ exports.markCompleted = async (req,res)=>{
 
         await mailSender(task.email,"Task Completed",`${task.title} Completed`,`Your task ${task.title} has been marked as compeleted`)
 
+        broadcastTaskUpdate(task);
+        
         return res.status(200).json({
             success:true,
             message:"Task Completed Successfully",
             data:updated
         })
 
-
-        
     } catch (error) {
         console.log(error.message);
         return res.status(500).json({
