@@ -65,7 +65,7 @@ It is hosted on [Vercel](https://vercel.com), ensuring seamless deployment and s
    npm run dev
    ```
 
-   The backend will be running on `http://localhost:4000`.
+   The backend will be running on `http://localhost:4000/api/v1`.
 
 ## API Endpoints
 
@@ -88,3 +88,11 @@ You can test the API using the hosted Vercel URL or by using Postman.
 
 - **Vercel URL**: [https://rapid-innovation-nodejs-lpq6xnre2-paresh-95s-projects.vercel.app](https://rapid-innovation-nodejs-lpq6xnre2-paresh-95s-projects.vercel.app)
 - **Postman URL**: [http://localhost:4000](http://localhost:4000)
+
+## Postman API Testing
+
+To make testing easier, you can use the Postman documentation:
+   
+- **Postman Documentation**: [View API Documentation](https://www.postman.com/your_username/workspace/your_collection_name/documentation/your_documentation_id) (localhost)
+
+Follow the instructions in the documentation to test the API endpoints.
