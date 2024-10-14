@@ -93,6 +93,6 @@ You can test the API using the hosted Vercel URL or by using Postman.
 
 To make testing easier, you can use the Postman documentation:
    
-- **Postman Documentation**: [View API Documentation](https://roomies-4191.postman.co/api/:apiId/documentation/30984416-e42b1d84-b2bc-4918-89fe-a1b1c280d4e4/publish?workspaceId=50a34984-337a-4bdc-9b05-a2b45ea9e797&requestId=#styling) (localhost)
+- **Postman Documentation**: [View API Documentation](https://documenter.getpostman.com/view/30984416/2sAXxTbqhL) (localhost)
 
 Follow the instructions in the documentation to test the API endpoints.
